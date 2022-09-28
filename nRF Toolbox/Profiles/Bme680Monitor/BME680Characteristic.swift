@@ -30,40 +30,32 @@
 
 
 
-import UIKit
+import Foundation
 
-protocol Section {
-    func dequeCell(for index: Int, from tableView: UITableView) -> UITableViewCell
-    mutating func reset()
-    var numberOfItems: Int { get }
-    var sectionTitle: String { get }
-    var id: Identifier<Section> { get }
-    var isHidden: Bool { get }
-    func cellHeight(for index: Int) -> CGFloat
-    func registerCells(_ tableView: UITableView)
+private extension Flag {
+    static let bme680Type: Flag = 0x01
 }
 
-extension CGFloat {
-    static let defaultTableCellHeight: CGFloat = 44.0
-}
-
-extension Section {
-    func cellHeight(for index: Int) -> CGFloat {
-        .defaultTableCellHeight
-    }
+struct bme680MeasurementCharacteristic {
+    let index: UInt32
+    let temperature: UInt32
+    let pressure: UInt32
+    let humidity: UInt32
+    let gasresist: UInt32
+    let date: Date
     
-    func registerCells(_ tableView: UITableView) {
+    init(with data: Data, date: Date) throws {
+        index       = try data.read(fromOffset:  0)
+        temperature = try data.read(fromOffset:  4)
+        pressure    = try data.read(fromOffset:  8)
+        humidity    = try data.read(fromOffset: 12)
+        gasresist   = try data.read(fromOffset: 16)
         
+        self.date = date
+//        let flags: UInt8 = try data.read()
+//
+//        bme680 = Flag.isAvailable(bits: flags, flag: .bme680Type)
+//            ? Int(try data.read(fromOffset: 1) as UInt16)
+//            : Int(try data.read(fromOffset: 1) as UInt8)
     }
-}
-
-extension Identifier where Value == Section {
-    static let battery: Identifier<Section> = "battery"
-    static let disconnect: Identifier<Section> = "Disconnect"
-    static let bgmReadings: Identifier<Section> = "BGMReadings"
-    static let selectionResult: Identifier<Section> = "SelectionResultSection"
-    static let optionSelection: Identifier<Section> = "OptionSelection"
-    static let details: Identifier<Section> = "DetailsSection"
-    static let cycling: Identifier<Section> = "Cycling"
-    static let bmeHandshake: Identifier<Section> = "bmeHandshake"
 }

@@ -276,6 +276,10 @@
 		C3E8C1AE26F21FE4000A3737 /* FilterSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3E8C1AD26F21FE3000A3737 /* FilterSwitchView.xib */; };
 		CC7B90D148FC21C73B54BFAB /* NumberFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B93FA695799F95D065492 /* NumberFormatter+Ext.swift */; };
 		CC7B91DDFD7EF39F27FEC85A /* CommandImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B95845343A3D826B220D5 /* CommandImage.swift */; };
+		CE30AE31288FE63000AE3006 /* BmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30AE30288FE63000AE3006 /* BmeViewController.swift */; };
+		CE325B0C2892674E000FB69C /* BmeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE30AE2F288FE61800AE3006 /* BmeViewController.xib */; };
+		CE48FD30288D7A9D0028BD33 /* BME680Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FD29288D7A9D0028BD33 /* BME680Characteristic.swift */; };
+		CE48FD31288D7A9D0028BD33 /* Peripheral+BME680.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FD2B288D7A9D0028BD33 /* Peripheral+BME680.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -577,6 +581,10 @@
 		C3E8C1AD26F21FE3000A3737 /* FilterSwitchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterSwitchView.xib; sourceTree = "<group>"; };
 		CC7B93FA695799F95D065492 /* NumberFormatter+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Ext.swift"; sourceTree = "<group>"; };
 		CC7B95845343A3D826B220D5 /* CommandImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandImage.swift; sourceTree = "<group>"; };
+		CE30AE2F288FE61800AE3006 /* BmeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BmeViewController.xib; sourceTree = "<group>"; };
+		CE30AE30288FE63000AE3006 /* BmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmeViewController.swift; sourceTree = "<group>"; };
+		CE48FD29288D7A9D0028BD33 /* BME680Characteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BME680Characteristic.swift; sourceTree = "<group>"; };
+		CE48FD2B288D7A9D0028BD33 /* Peripheral+BME680.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Peripheral+BME680.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1233,6 +1241,7 @@
 		20B7979B2338EC59001328E1 /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
+				CE48FD22288D7A9D0028BD33 /* Bme680Monitor */,
 				0197AFCC2420DA3500ADF105 /* ZephyrDFU */,
 				01D6D2BC24069FE000E1A66F /* DeviceFirmwareUpdate */,
 				4381AD1823BA010200FB1A1F /* UART */,
@@ -1763,6 +1772,17 @@
 			path = FilterSwitch;
 			sourceTree = "<group>";
 		};
+		CE48FD22288D7A9D0028BD33 /* Bme680Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				CE48FD29288D7A9D0028BD33 /* BME680Characteristic.swift */,
+				CE48FD2B288D7A9D0028BD33 /* Peripheral+BME680.swift */,
+				CE30AE30288FE63000AE3006 /* BmeViewController.swift */,
+				CE30AE2F288FE61800AE3006 /* BmeViewController.xib */,
+			);
+			path = Bme680Monitor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1822,7 +1842,6 @@
 				ORGANIZATIONNAME = "Nordic Semiconductor";
 				TargetAttributes = {
 					5217F3E11859EE0000F2D5BB = {
-						DevelopmentTeam = P3R8YQEV4L;
 						LastSwiftMigration = 1030;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1898,6 +1917,7 @@
 				01A1B76D23CF43590062FADC /* UART.xcassets in Resources */,
 				20E07B5B2306975700FCB205 /* GT-Eesti-Display-Thin.ttf in Resources */,
 				01DDD79D23EC5CDA003786ED /* TimeIntervalTableViewCell.xib in Resources */,
+				CE325B0C2892674E000FB69C /* BmeViewController.xib in Resources */,
 				20E07B642306975700FCB205 /* GT-Eesti-Display-Thin-Italic.ttf in Resources */,
 				20E07B662306975700FCB205 /* GT-Eesti-Display-Regular-Italic.ttf in Resources */,
 				5217F3FE1859EE0000F2D5BB /* Images.xcassets in Resources */,
@@ -1982,6 +2002,7 @@
 				3001432D1CECADFB008379DF /* CharacteristicReader.swift in Sources */,
 				200973D32341DBAB0091951B /* CyclingCharacteristic.swift in Sources */,
 				0119609E23FA063700A7EF29 /* UARTMacrosHeaderView.swift in Sources */,
+				CE48FD30288D7A9D0028BD33 /* BME680Characteristic.swift in Sources */,
 				01AF928323D0AC3200C1BFD6 /* StringProtocol+Ext.swift in Sources */,
 				203D0F0E23325E0A00C0340D /* CyclingTableViewSection.swift in Sources */,
 				0197AFCF2420DAAC00ADF105 /* NotConnectedViewController.swift in Sources */,
@@ -2067,6 +2088,7 @@
 				01FBC5102408101B00B1056B /* NordicRightDetailTableViewCell.swift in Sources */,
 				20D08E2B232B95B300569587 /* DisclosureTableViewCell.swift in Sources */,
 				2002A0052322610F00C43E06 /* GlucoseMonitorViewController.swift in Sources */,
+				CE48FD31288D7A9D0028BD33 /* Peripheral+BME680.swift in Sources */,
 				01BEADD4241A992300FC7183 /* HMAccessoryListTableViewController.swift in Sources */,
 				01B6D3DC234CB755000942C4 /* HeartRateLocationCharacteristic.swift in Sources */,
 				01D98C8E242E2B3C000A3B35 /* Dirrectory.swift in Sources */,
@@ -2131,6 +2153,7 @@
 				33976B2C1CE8194EFAEB7341 /* Randomizer.swift in Sources */,
 				01363A872417E4FA0030821E /* ControlSection.swift in Sources */,
 				436C0AD22456FDD700B03B61 /* ImageWrapper.swift in Sources */,
+				CE30AE31288FE63000AE3006 /* BmeViewController.swift in Sources */,
 				339765E57CA5E940D960B675 /* ChartDataSection.swift in Sources */,
 				01FBC5012407BF8F00B1056B /* PeripheralHolder.swift in Sources */,
 				3397622AEAB44E02CA055BDF /* ProximityViewController.swift in Sources */,
@@ -2226,12 +2249,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Beta;
 		};
@@ -2246,6 +2269,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 4L7JRM924K;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2272,7 +2296,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D BETA";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nordicsemi.nRF-Toolbox-beta";
+				PRODUCT_BUNDLE_IDENTIFIER = "nidenshi.nrfapp-beta";
 				PRODUCT_NAME = "$(TARGET_NAME) Beta";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -2335,13 +2359,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Debug;
 		};
@@ -2389,14 +2413,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Release;
 		};
@@ -2411,6 +2435,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 4L7JRM924K;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2437,7 +2462,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D RAND";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nordicsemi.nRF-Toolbox-debug";
+				PRODUCT_BUNDLE_IDENTIFIER = nidenshi.nrfapp;
 				PRODUCT_NAME = "$(TARGET_NAME) Debug";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -2460,6 +2485,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 4L7JRM924K;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2486,7 +2512,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nordicsemi.nRF-Toolbox";
+				PRODUCT_BUNDLE_IDENTIFIER = nidenshi.nrfapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";

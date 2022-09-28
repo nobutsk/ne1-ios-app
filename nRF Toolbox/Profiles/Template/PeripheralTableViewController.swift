@@ -44,7 +44,7 @@ class PeripheralTableViewController: PeripheralViewController, UITableViewDataSo
     var tableView: UITableView!
     private var batterySection = BatterySection(id: .battery)
 
-    var sections: [Section] { internalSections + [batterySection, disconnectSection] }
+    var sections: [Section] { internalSections + [batterySection,disconnectSection] }
     var visibleSections: [Section] { sections.filter { !$0.isHidden } }
     var internalSections: [Section] { [] }
     
@@ -56,7 +56,7 @@ class PeripheralTableViewController: PeripheralViewController, UITableViewDataSo
             self.disconnect()
         }
     ])
-
+    
     override func viewDidLoad() {
         if #available(iOS 13.0, *) {
             tableView = UITableView(frame: .zero, style: .insetGrouped)

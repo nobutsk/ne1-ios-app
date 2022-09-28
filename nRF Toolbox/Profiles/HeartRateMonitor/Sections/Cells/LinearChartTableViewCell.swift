@@ -42,11 +42,11 @@ extension DateFormatter: AxisValueFormatter {
 }
 
 class LinearChartTableViewCell: UITableViewCell {
-    
+
     var maxVisibleXRange = 30.0
 
     let chartsView = LineChartView()
-    
+
     var dateFormatter: DateFormatter = {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "mm:ss"
@@ -60,7 +60,7 @@ class LinearChartTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(chartsView)
-        
+
         chartsView.legend.form = .empty
         chartsView.noDataText = "Retrieving data..."
         chartsView.noDataFont = .gtEestiDisplay(.thin, size: 32)
@@ -68,7 +68,7 @@ class LinearChartTableViewCell: UITableViewCell {
         if #available(iOS 13, *) {
             chartsView.noDataTextColor = .systemGray2
         }
-        
+
         chartsView.setScaleEnabled(false)
         chartsView.rightAxis.drawLabelsEnabled = false
 
@@ -77,9 +77,9 @@ class LinearChartTableViewCell: UITableViewCell {
 
         let xAxis = chartsView.xAxis
         xAxis.labelFont = .gtEestiDisplay(.light, size: 10)
-        
+
         xAxis.valueFormatter = dateFormatter
-        
+
         chartsView.dragEnabled = true
         chartsView.dragDecelerationFrictionCoef = 0.35
 
@@ -94,7 +94,7 @@ class LinearChartTableViewCell: UITableViewCell {
 
     private func setupBorderAnchors() {
         chartsView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             chartsView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             chartsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 16),
@@ -112,31 +112,31 @@ class LinearChartTableViewCell: UITableViewCell {
         chartsView.data = dataSet
         chartsView.setVisibleXRangeMaximum(maxVisibleXRange)
         guard let last = data.last?.x else { return }
-        
+
         if chartsView.highestVisibleX.rounded(.up) >= chartsView.xAxis.axisMaximum - 2 {
             chartsView.moveViewToX(last)
         }
     }
-    
+
     private func configureChartData(_ value: [(x: TimeInterval, y: Double)]) -> LineChartData? {
         guard value.count > 0 else { return nil }
         guard let first = value.first?.x else { return nil }
 
         let data = chartsView.data as? LineChartData ?? LineChartData()
         let chartValues = value.map { ChartDataEntry(x: $0.x, y: $0.y) }
-        
+
         let last = value.last?.x ?? Double.leastNormalMagnitude
         let xMax = max((first + maxVisibleXRange), last)
-        
+
         chartsView.xAxis.axisMaximum = xMax
         chartsView.xAxis.axisMinimum = first
-        
+
         let set = LineChartDataSet(entries: chartValues, label: "")
         set.drawCirclesEnabled = false
         set.drawValuesEnabled = false
-        
+
         data.dataSets = [set]
-        
+
         return data
     }
 

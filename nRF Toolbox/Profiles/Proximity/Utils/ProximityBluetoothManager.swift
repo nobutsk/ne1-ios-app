@@ -40,9 +40,9 @@ class ProximityBluetoothManager: NSObject {
     private var peripheralManager: CBPeripheralManager!
     private var centralManager: CBCentralManager!
     private var immediateAlertCharacteristic: CBCharacteristic!
-    
+
     var errorHandler: ((Error) -> ())?
-    
+
     override init() {
         super.init()
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
@@ -55,13 +55,13 @@ extension ProximityBluetoothManager: CBPeripheralDelegate {
             errorHandler?(e)
             return
         }
-        
+
     }
 }
 
 extension ProximityBluetoothManager: CBPeripheralManagerDelegate {
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        
+
     }
-    
+
 }

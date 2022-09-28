@@ -45,6 +45,7 @@ enum ServiceId: String, CaseIterable {
     case zephyrDFU
     case proximity
     case homeKit
+    case bme680Monitor
 }
 
 protocol MainRouter {
@@ -72,7 +73,8 @@ class DefaultMainRouter {
             .cyclingSensor : CyclingTableViewController(),
             .runningSensor : RunningTableViewController(),
             .proximity : ProximityViewController(),
-            .uart : UARTTabBarController()
+            .uart : UARTTabBarController(),
+            .bme680Monitor : BmeViewController()
             ].mapValues { UINavigationController.nordicBranded(rootViewController: $0) }
         .merging([
             .deviceFirmwareUpgrade : dfuRouter.initialState(),

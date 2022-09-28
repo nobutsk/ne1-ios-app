@@ -118,7 +118,7 @@ class UARTViewController: UIViewController, AlertPresenter {
     @IBAction func disconnect() {
         btManager.cancelPeripheralConnection()
     }
-    
+
     @IBAction func saveLoad(_ sender: UIButton) {
         let alert = UIAlertController(title: "Save or Load preset", message: nil, preferredStyle: .actionSheet)
         alert.popoverPresentationController?.sourceView = saveLoadButton

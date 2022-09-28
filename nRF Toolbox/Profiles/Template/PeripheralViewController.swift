@@ -90,7 +90,7 @@ class PeripheralViewController: UIViewController, StatusDelegate, AlertPresenter
         guard let peripheral = activePeripheral else { return }
         peripheralManager.closeConnection(peripheral: peripheral)
     }
-    
+
     @objc func didEnterBackground(notification: Notification) {
         guard let peripheral = activePeripheral else { return }
         
@@ -271,7 +271,7 @@ class PeripheralViewController: UIViewController, StatusDelegate, AlertPresenter
     }
 
     func didUpdateValue(for characteristic: CBCharacteristic) {
-        SystemLog(category: .ble, type: .debug).log(message: "Cannot handle update value for characteristic \(characteristic)")
+//        SystemLog(category: .ble, type: .debug).log(message: "Cannot handle update value for characteristic \(characteristic)")
     }
 }
 
@@ -341,7 +341,7 @@ extension PeripheralViewController: CBPeripheralDelegate {
             return
         }
 
-        SystemLog(category: .ble, type: .debug).log(message: "New value in characteristic: \(characteristic.debugDescription)")
+//        SystemLog(category: .ble, type: .debug).log(message: "New value in characteristic: \(characteristic.debugDescription)")
 
         didUpdateValue(for: characteristic)
     }

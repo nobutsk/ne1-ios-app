@@ -56,6 +56,7 @@ class HeartRateMonitorTableViewController: PeripheralTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(LinearChartTableViewCell.self, forCellReuseIdentifier: "LinearChartTableViewCell")
+        
     }
     
     override func didUpdateValue(for characteristic: CBCharacteristic) {

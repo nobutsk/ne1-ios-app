@@ -1,0 +1,79 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AEXML",
+        "repositoryURL": "https://github.com/tadija/AEXML.git",
+        "state": {
+          "branch": null,
+          "revision": "38f7d00b23ecd891e1ee656fa6aeebd6ba04ecc3",
+          "version": "4.6.1"
+        }
+      },
+      {
+        "package": "Charts",
+        "repositoryURL": "https://github.com/danielgindi/Charts.git",
+        "state": {
+          "branch": null,
+          "revision": "8d134a78bb2cb9e7a0f05ecbd5880bb05cd02863",
+          "version": "4.0.1"
+        }
+      },
+      {
+        "package": "NordicDFU",
+        "repositoryURL": "https://github.com/NordicSemiconductor/IOS-DFU-Library.git",
+        "state": {
+          "branch": "main",
+          "revision": "5906bc522a3eb2040644b1063019e3516456fdb1",
+          "version": null
+        }
+      },
+      {
+        "package": "iOSMcuManagerLibrary",
+        "repositoryURL": "https://github.com/NordicSemiconductor/IOS-nRF-Connect-Device-Manager",
+        "state": {
+          "branch": "master",
+          "revision": "3e83d16da0497f77ca9220825181a5cb3c98a40a",
+          "version": null
+        }
+      },
+      {
+        "package": "swift-algorithms",
+        "repositoryURL": "https://github.com/apple/swift-algorithms",
+        "state": {
+          "branch": null,
+          "revision": "2327673b0e9c7e90e6b1826376526ec3627210e4",
+          "version": "0.2.1"
+        }
+      },
+      {
+        "package": "swift-numerics",
+        "repositoryURL": "https://github.com/apple/swift-numerics",
+        "state": {
+          "branch": null,
+          "revision": "6583ac70c326c3ee080c1d42d9ca3361dca816cd",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "SwiftCBOR",
+        "repositoryURL": "https://github.com/unrelentingtech/SwiftCBOR.git",
+        "state": {
+          "branch": null,
+          "revision": "895c9aa84ce3b04106905e398ac870e0cca59d26",
+          "version": "0.4.4"
+        }
+      },
+      {
+        "package": "ZIPFoundation",
+        "repositoryURL": "https://github.com/weichsel/ZIPFoundation.git",
+        "state": {
+          "branch": null,
+          "revision": "ec32d62d412578542c0ffb7a6ce34d3e64b43b94",
+          "version": "0.9.11"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

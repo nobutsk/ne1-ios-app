@@ -30,40 +30,25 @@
 
 
 
-import UIKit
+import CoreBluetooth
 
-protocol Section {
-    func dequeCell(for index: Int, from tableView: UITableView) -> UITableViewCell
-    mutating func reset()
-    var numberOfItems: Int { get }
-    var sectionTitle: String { get }
-    var id: Identifier<Section> { get }
-    var isHidden: Bool { get }
-    func cellHeight(for index: Int) -> CGFloat
-    func registerCells(_ tableView: UITableView)
+extension CBUUID {
+    static let bme680Service         = CBUUID(string: "4B05AABB-E46A-5FAB-F158-C74C3B451E20")
+    static let bme680MeasChar        = CBUUID(string: "4B05AAA0-E46A-5FAB-F158-C74C3B451E20")
+    static let bme680HandshakeChar   = CBUUID(string: "4B05AAA1-E46A-5FAB-F158-C74C3B451E20")
 }
 
-extension CGFloat {
-    static let defaultTableCellHeight: CGFloat = 44.0
+extension PeripheralDescription {
+    static let bme680 = PeripheralDescription(uuid: .bme680Service,
+                                              services: [.battery, .bmeService],
+                                              mandatoryServices: [.bme680Service],
+                                              mandatoryCharacteristics: [.bme680MeasChar])
 }
 
-extension Section {
-    func cellHeight(for index: Int) -> CGFloat {
-        .defaultTableCellHeight
-    }
-    
-    func registerCells(_ tableView: UITableView) {
-        
-    }
+private extension PeripheralDescription.Service {
+    static let bmeService = PeripheralDescription.Service(uuid: .bme680Service,characteristics: [.bmeMeasurement , .bmeHandshake])
 }
-
-extension Identifier where Value == Section {
-    static let battery: Identifier<Section> = "battery"
-    static let disconnect: Identifier<Section> = "Disconnect"
-    static let bgmReadings: Identifier<Section> = "BGMReadings"
-    static let selectionResult: Identifier<Section> = "SelectionResultSection"
-    static let optionSelection: Identifier<Section> = "OptionSelection"
-    static let details: Identifier<Section> = "DetailsSection"
-    static let cycling: Identifier<Section> = "Cycling"
-    static let bmeHandshake: Identifier<Section> = "bmeHandshake"
+private extension PeripheralDescription.Service.Characteristic {
+    static let bmeMeasurement = PeripheralDescription.Service.Characteristic(uuid: .bme680MeasChar, properties: .notify(true))
+    static let bmeHandshake   = PeripheralDescription.Service.Characteristic(uuid: .bme680HandshakeChar, properties: nil)
 }

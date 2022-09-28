@@ -4,6 +4,20 @@
 <array>
 	<dict>
 		<key>code</key>
+		<string>BME</string>
+		<key>name</key>
+		<string>BME680</string>
+		<key>icon</key>
+		<string>FeatureBME</string>
+		<key>info</key>
+		<string></string>
+		<key>id</key>
+		<string>bme680Monitor</string>
+		<key>uuid</key>
+		<string>4B05AABB-E46A-5FAB-F158-C74C3B451E20</string>
+	</dict>
+	<dict>
+		<key>code</key>
 		<string>GLS</string>
 		<key>name</key>
 		<string>Glucose</string>
