@@ -1,3 +1,6 @@
+# ne1-ios-app
+　温湿度センサノードのiOSアプリです。IOS-nRF-Toolboxをベースに作成しました。温湿度センサノード向けに追加したソースコードについてはファイル差分をご参照ください。
+
 # IOS-nRF-Toolbox
 
 The nRF Toolbox is a container app that stores your Nordic Semiconductor apps for Bluetooth Low Energy in one location. 
